@@ -1,7 +1,7 @@
 # COURS DE SCIENCE DES DONNÉES
 # HAMDOUNE Oumaima
-Pour insérer un image/
 <img src="photo.jpg" style="height:464px;margin-right:432px"/>
+<img src="ENCG LOGO.jpg" style="height:464px;margin-right:432px"/>
 ## École Nationale de Commerce et de Gestion (ENCG) - 4ème Année
 
 ---
