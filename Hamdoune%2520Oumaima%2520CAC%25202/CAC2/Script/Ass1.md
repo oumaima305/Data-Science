@@ -204,8 +204,49 @@ plt.show()
 ```
 Ce code permet de visualiser la distribution de trois caractéristiques cellulaires — radius1, texture1 et perimeter1 — en fonction du type de diagnostic (bénin ou malin). À l’aide de seaborn.boxplot(), il trace trois boxplots côte à côte, colorés selon le diagnostic : rouge saumon pour les tumeurs malignes et vert clair pour les bénignes. Ces graphiques montrent que les valeurs du rayon et du périmètre sont en moyenne plus élevées pour les tumeurs malignes, ce qui indique que les cellules cancéreuses ont tendance à être plus grandes et irrégulières, tandis que les tumeurs bénignes présentent des valeurs plus faibles et stables. Cette visualisation aide à comprendre comment certaines caractéristiques morphologiques distinguent clairement les deux types de tumeurs.
 ## résultats et interprétation 
+## Distribution des diagnostics
 ![Graphique 1 : Répartition du diagnostic](<img width="618" height="470" alt="image" src="https://github.com/user-attachments/assets/b6553b8d-fde2-4add-b22f-dbfc93f3356c" />
 .PNG)
+### Interprétation :
 Ce graphique montre la **répartition des cas bénins (B)** et **malins (M)** dans l’échantillon.  
-On remarque qu’il y a **plus de cas bénins** que de cas malins, indiquant que les tumeurs bénignes sont plus fréquentes dans cet ensemble de données.
+On remarque qu’il y a **plus de cas bénins** que de cas malins, indiquant<img w que les tumeurs bénignes sont plus fréquentes dans cet ensemble de données.
+![Graphique 2 : Distribution des variables principales](<img width="618" height="470" alt="image" src="https://github.com/user-attachments/assets/9a6d83e3-cd24-42e0-b11e-1a41f653f766" />.PNG)
+###  Interprétation :
+Les graphiques en barres montrent la distribution de trois caractéristiques importantes :
+- **radius1** (taille moyenne des noyaux),
+- **texture1** (variation d’intensité),
+- **perimeter1** (périmètre des noyaux).
+
+Les **tumeurs malignes (M)** ont des valeurs moyennes **plus élevées** pour ces trois variables, suggérant une structure cellulaire plus développée et irrégulière.
+
+---
+
+## 3. Comparaison des variables par diagnostic
+
+![Graphique 3 : Boîtes à moustaches des variables](<img width="1790" height="590" alt="image" src="https://github.com/user-attachments/assets/15bd3129-ee61-42f6-8230-ffc6e84bad44" />
+.PNG)
+
+### Interprétation :
+Les **boxplots** permettent de visualiser la dispersion et les médianes des variables :
+- Les tumeurs **malignes** présentent une **médiane plus élevée** pour le rayon, la texture et le périmètre.
+- Il existe quelques **valeurs aberrantes** (outliers) dans chaque groupe, particulièrement pour les cas malins.
+
+Cela confirme que les tumeurs malignes tendent à avoir des cellules plus grandes et plus hétérogènes.
+
+---
+
+ 4. Autre comparaison de caractéristiques
+
+![Graphique 4 : Analyse complémentaire](<img width="1790" height="590" alt="image" src="https://github.com/user-attachments/assets/e61b07d1-9c74-45d8-85d6-e1430e9a4938" />
+.PNG)
+
+Interprétation :
+Ce graphique renforce les tendances précédentes :  
+Les **valeurs des caractéristiques physiques** (comme le rayon et le périmètre) sont **nettement plus élevées pour les cas malins**.  
+Cela aide à différencier les deux types de tumeurs et à construire un modèle de classification fiable.
+
+Conclusion
+
+Les visualisations montrent clairement une distinction entre les tumeurs bénignes et malignes selon plusieurs caractéristiques.  
+Ces observations constituent une **base solide pour l’entraînement d’un modèle de machine learning** capable de prédire le diagnostic à partir des mesures cellulaires.
 
