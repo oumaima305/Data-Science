@@ -204,7 +204,8 @@ plt.show()
 ```
 Ce code permet de visualiser la distribution de trois caractéristiques cellulaires — radius1, texture1 et perimeter1 — en fonction du type de diagnostic (bénin ou malin). À l’aide de seaborn.boxplot(), il trace trois boxplots côte à côte, colorés selon le diagnostic : rouge saumon pour les tumeurs malignes et vert clair pour les bénignes. Ces graphiques montrent que les valeurs du rayon et du périmètre sont en moyenne plus élevées pour les tumeurs malignes, ce qui indique que les cellules cancéreuses ont tendance à être plus grandes et irrégulières, tandis que les tumeurs bénignes présentent des valeurs plus faibles et stables. Cette visualisation aide à comprendre comment certaines caractéristiques morphologiques distinguent clairement les deux types de tumeurs.
 ## résultats et interprétation 
-![Graphique 1 : Répartition du diagnostic](graph1.PNG)
+![Graphique 1 : Répartition du diagnostic](<img width="618" height="470" alt="image" src="https://github.com/user-attachments/assets/b6553b8d-fde2-4add-b22f-dbfc93f3356c" />
+.PNG)
 Ce graphique montre la **répartition des cas bénins (B)** et **malins (M)** dans l’échantillon.  
 On remarque qu’il y a **plus de cas bénins** que de cas malins, indiquant que les tumeurs bénignes sont plus fréquentes dans cet ensemble de données.
 
