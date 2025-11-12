@@ -64,5 +64,135 @@ mean : moyenne de la mesure sur tous les noyaux observés.
 se : erreur standard (Standard Error) de la mesure.
 
 worst : plus mauvaise (ou plus grande) valeur mesurée.
+## Les codes 
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Get value counts for 'Diagnosis'
+diagnosis_counts = y['Diagnosis'].value_counts()
+
+# Create the bar plot
+#sns.countplot() : crée un diagramme en barres montrant le nombre d’échantillons pour chaque type de diagnostic (B ou M)
+plt.figure(figsize=(7, 5))
+sns.countplot(x='Diagnosis', data=y, palette='viridis')
+
+# Add labels and title
+#palette='viridis' : palette de couleurs utilisée pour rendre le graphique lisible et esthétique
+plt.title('Distribution of Breast Cancer Diagnoses')
+plt.xlabel('Diagnosis Type')
+plt.ylabel('Number of Cases')
+
+# Display the plot
+plt.show()
+## **Code Python -IMPORTATION DU DATA :**
+
+```python
+!pip install ucimlrepo
+import pandas as pd
+from ucimlrepo import fetch_ucirepo
+
+# fetch dataset
+breast_cancer_wisconsin_diagnostic = fetch_ucirepo(id=17)
+
+# data (as pandas dataframes)
+X = breast_cancer_wisconsin_diagnostic.data.features
+y = breast_cancer_wisconsin_diagnostic.data.targets
+
+print("First 5 rows of features (X):\n", X.head())
+print("\nFirst 5 rows of target (y):\n", y.head())
+print("\nValue counts for 'Diagnosis' in y:\n", y['Diagnosis'].value_counts())
+```
+## **Code Python -VISUALISATION AVEC GRAPHES :**
+```python
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Get value counts for 'Diagnosis'
+diagnosis_counts = y['Diagnosis'].value_counts()
+
+# Create the bar plot
+#sns.countplot() : crée un diagramme en barres montrant le nombre d’échantillons pour chaque type de diagnostic (B ou M)
+plt.figure(figsize=(7, 5))
+sns.countplot(x='Diagnosis', data=y, palette='viridis')
+
+# Add labels and title
+#palette='viridis' : palette de couleurs utilisée pour rendre le graphique lisible et esthétique
+plt.title('Distribution of Breast Cancer Diagnoses')
+plt.xlabel('Diagnosis Type')
+plt.ylabel('Number of Cases')
+
+# Display the plot
+plt.show()
+```
+```python
+import matplotlib.pyplot as plt
+import seaborn as sns
+#matplotlib.pyplot :  créer des graphiques et des figures 
+# Get value counts for 'Diagnosis'
+diagnosis_counts = y['Diagnosis'].value_counts()
+
+# Create the bar plot, addressing the FutureWarning
+# sns.countplot() :trace un diagramme en barres
+plt.figure(figsize=(7, 5))
+sns.countplot(x='Diagnosis', data=y, hue='Diagnosis', palette='viridis', legend=False)
+
+# Add labels and title
+plt.title('Distribution of Breast Cancer Diagnoses')
+plt.xlabel('Diagnosis Type')
+plt.ylabel('Number of Cases')
+
+# Display the plot
+plt.show()
+# M = Malignant (tumeur maligne)
+# B = Benign (tumeur bénigne)
+```
+```python
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Define the features for plotting
+features_to_plot = ['radius1', 'texture1', 'perimeter1']
+
+# Create a figure with subplots for the box plots
+plt.figure(figsize=(18, 6))
+
+for i, feature in enumerate(features_to_plot):
+    plt.subplot(1, 3, i + 1) # 1 row, 3 columns, current plot index
+    sns.boxplot(x='Diagnosis', y=feature, data=df_combined, palette={'M': 'salmon', 'B': 'lightgreen'})
+    plt.title(f'Distribution of {feature} by Diagnosis')
+    plt.xlabel('Diagnosis')
+    plt.ylabel(feature)
+    plt.legend(title='Diagnosis', loc='upper right', labels=['Malignant', 'Benign'])
+
+plt.tight_layout()
+plt.show()
+#radius1 → rayon moyen des noyaux cellulaires,
+#texture1 → variation de l’intensité de la texture,
+#perimeter1 → périmètre du contour des noyaux.
+```
+```python
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Define the features for plotting
+features_to_plot = ['radius1', 'texture1', 'perimeter1']
+
+# Create a figure with subplots for the box plots
+plt.figure(figsize=(18, 6))
+
+for i, feature in enumerate(features_to_plot):
+    plt.subplot(1, 3, i + 1) # 1 row, 3 columns, current plot index
+    sns.boxplot(x='Diagnosis', y=feature, hue='Diagnosis', data=df_combined, palette={'M': 'salmon', 'B': 'lightgreen'})
+    plt.title(f'Distribution of {feature} by Diagnosis')
+    plt.xlabel('Diagnosis')
+    plt.ylabel(feature)
+
+plt.tight_layout()
+plt.show()
+```
+
+
+
+
 ## résultats et interprétation 
 
