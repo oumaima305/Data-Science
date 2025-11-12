@@ -85,6 +85,8 @@ plt.ylabel('Number of Cases')
 # Display the plot
 plt.show()
 ## **Code Python -IMPORTATION DU DATA :**
+## la phase d’importation et d’exploration initiale des données
+
 
 ```python
 !pip install ucimlrepo
@@ -102,6 +104,13 @@ print("First 5 rows of features (X):\n", X.head())
 print("\nFirst 5 rows of target (y):\n", y.head())
 print("\nValue counts for 'Diagnosis' in y:\n", y['Diagnosis'].value_counts())
 ```
+ Installer et utiliser la bibliothèque ucimlrepo pour importer des jeux de données depuis le UCI Machine Learning Repository,
+
+Charger le dataset Breast Cancer Wisconsin (Diagnostic) (ID = 17 dans la base UCI),
+
+Afficher les premières lignes des variables explicatives (features) et de la variable cible (target),
+
+Observer la répartition des classes de diagnostic (bénin vs malin).
 ## **Code Python -VISUALISATION AVEC GRAPHES :**
 ```python
 import matplotlib.pyplot as plt
@@ -124,6 +133,7 @@ plt.ylabel('Number of Cases')
 # Display the plot
 plt.show()
 ```
+Ce code permet de visualiser la répartition des diagnostics de cancer du sein dans le jeu de données. À l’aide de seaborn.countplot(), il trace un diagramme en barres indiquant le nombre de cas bénins (B) et malins (M), avec une palette de couleurs « viridis » pour un rendu clair et esthétique. Le graphique révèle que les tumeurs bénignes sont plus fréquentes que les tumeurs malignes, ce qui montre un léger déséquilibre entre les classes. Cette visualisation simple mais essentielle aide à comprendre la composition du dataset avant d’appliquer des méthodes d’analyse ou de prédiction.
 ```python
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -146,6 +156,7 @@ plt.show()
 # M = Malignant (tumeur maligne)
 # B = Benign (tumeur bénigne)
 ```
+Ce code a pour objectif de visualiser la répartition des diagnostics de cancer du sein dans le jeu de données. Après avoir compté le nombre de cas bénins (B) et malins (M) avec value_counts(), un diagramme en barres est tracé à l’aide de seaborn.countplot(). Le graphique montre que les tumeurs bénignes sont plus nombreuses que les tumeurs malignes, indiquant un léger déséquilibre dans le dataset. Cette étape permet de comprendre la composition des classes avant toute analyse prédictive et de vérifier si un rééquilibrage des données pourrait être nécessaire lors de la modélisation.
 ```python
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -170,6 +181,7 @@ plt.show()
 #texture1 → variation de l’intensité de la texture,
 #perimeter1 → périmètre du contour des noyaux.
 ```
+Ce code a pour objectif de comparer la distribution de trois caractéristiques cellulaires — radius1, texture1 et perimeter1 — selon le type de diagnostic (bénin ou malin). À l’aide de seaborn.boxplot(), il trace trois boxplots côte à côte, où les tumeurs malignes sont représentées en rouge saumon et les bénignes en vert clair. Ces graphiques permettent d’observer que les tumeurs malignes présentent généralement des valeurs plus élevées pour le rayon et le périmètre, traduisant des cellules plus grandes et irrégulières, tandis que les tumeurs bénignes ont des caractéristiques plus petites et régulières. Cette visualisation met donc en évidence des différences morphologiques importantes entre les deux types de tumeurs, utiles pour la classification.
 ```python
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -190,9 +202,6 @@ for i, feature in enumerate(features_to_plot):
 plt.tight_layout()
 plt.show()
 ```
-
-
-
-
+Ce code permet de visualiser la distribution de trois caractéristiques cellulaires — radius1, texture1 et perimeter1 — en fonction du type de diagnostic (bénin ou malin). À l’aide de seaborn.boxplot(), il trace trois boxplots côte à côte, colorés selon le diagnostic : rouge saumon pour les tumeurs malignes et vert clair pour les bénignes. Ces graphiques montrent que les valeurs du rayon et du périmètre sont en moyenne plus élevées pour les tumeurs malignes, ce qui indique que les cellules cancéreuses ont tendance à être plus grandes et irrégulières, tandis que les tumeurs bénignes présentent des valeurs plus faibles et stables. Cette visualisation aide à comprendre comment certaines caractéristiques morphologiques distinguent clairement les deux types de tumeurs.
 ## résultats et interprétation 
 
