@@ -22,7 +22,8 @@ print(wine_quality.metadata)
 print(wine_quality.variables)
 ```
 Ce code installe et utilise la librairie ucimlrepo pour télécharger automatiquement le dataset « Wine Quality ». Il affiche les métadonnées, les données ainsi que la description des variables afin de comprendre la structure du dataset avant toute analyse.
-2) Construction du DataFrame
+
+2)  Construction du DataFrame
 ```python
 import pandas as pd
 import numpy as np
@@ -42,6 +43,7 @@ print("\n========= A few first samples ========= \n")
 print(df.head())
 ```
 On combine les variables explicatives et la variable cible dans un seul tableau df. Cela permet d’avoir toutes les informations regroupées dans un DataFrame adapté à l’analyse et au machine learning. L’affichage sert à vérifier que les données ont été correctement chargées.
+
 3) Séparation entre X et Y
 ```python
 X = df.drop(["quality", "color"], axis=1) #we drop the column "quality" and "color"
@@ -54,12 +56,14 @@ print(Y.value_counts())
 #value_counts() : compte combien de vins appartiennent à chaque qualité.
 ```
 Le code sépare les variables explicatives X et la variable cible Y. On affiche ensuite la distribution des classes pour vérifier l’équilibre du dataset. Cette étape prépare le jeu de données pour l’entraînement du modèle.
+
 4) Transformation en classification binaire
  ```python
  # bad wine (y=0) : quality <= 5 and good quality (y= 1) otherwise
  Y = [0 if val <=5 else 1 for val in Y]
 ```
 On convertit la qualité du vin en deux classes : 0 pour les vins de mauvaise qualité et 1 pour les vins de bonne qualité. Cela simplifie la tâche de prédiction et permet d’utiliser un modèle de classification binaire.
+
 5) Matrice de corrélation
 ```python
 import matplotlib.pyplot as plt
@@ -77,6 +81,7 @@ corr = X.drop('color', axis=1).corr()
 sns.heatmap(corr)
 ```
 Ce code calcule et affiche la matrice de corrélation des variables afin d’identifier les relations linéaires entre elles. Cela permet de repérer les variables influentes ou redondantes.
+
 6) Division apprentissage / validation
 ```python
 from sklearn.model_selection import train_test_split
@@ -97,6 +102,7 @@ Xa, Xv, Ya, Yv = train_test_split(Xa, Ya, shuffle=True, test_size=0.5,
 stratify=Ya)
 ```
 Les données sont divisées en deux ensembles : apprentissage et validation. L’option stratify garantit que les proportions des classes sont préservées, ce qui améliore la qualité de l’évaluation.
+
 7) Premier modèle KNN
 ```python
  from sklearn.neighbors import KNeighborsClassifier
@@ -115,6 +121,7 @@ Les données sont divisées en deux ensembles : apprentissage et validation. L�
  error_v = 1-accuracy_score(Yv, Ypred_v)
 ```
 Un premier modèle KNN est créé avec k=5 voisins. Il est entraîné puis testé sur les données de validation. L’erreur de classification est ensuite calculée pour mesurer la performance initiale du modèle.
+
 8) Recherche du meilleur k
 ```python
  # some hints
@@ -133,6 +140,7 @@ for ind, k in enumerate(k_vector):
     error_val[ind] = 1 - accuracy_score(Yv, Ypred_val)
 ```
 On teste plusieurs valeurs de k afin d’identifier celle donnant les meilleurs résultats. Pour chaque k, un nouveau modèle est entraîné et son erreur est enregistrée. Cela permet d’optimiser le modèle KNN.
+
 9) Extraction du k optimal
 ```python
 #k_star = meilleur nombre de voisins.
@@ -140,6 +148,7 @@ On teste plusieurs valeurs de k afin d’identifier celle donnant les meilleurs 
  err_min, ind_opt = error_val.min(), error_val.argmin()
  k_star = k_vector[ind_opt]
 On récupère la valeur de k qui génère l’erreur la plus faible. Cette valeur k_star représente le meilleur choix pour obtenir un modèle performant.
+
 10) Normalisation des données
  #StandardScaler : normalisation des données.
 #fit() : calcule les moyennes et écarts-types.
