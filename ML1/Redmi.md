@@ -1,3 +1,6 @@
+Présentation de la base de données Wine Quality
+
+La base de données Wine Quality a été créée par des chercheurs portugais et publiée sur l’UCI Machine Learning Repository. Elle a été collectée entre 2004 et 2007 auprès d’un producteur de vin de la région du Vinho Verde au Portugal. L’objectif de cette base est d’étudier comment les propriétés physico-chimiques du vin — comme l’acidité, le sucre, le pH ou la teneur en alcool — influencent sa qualité finale, évaluée par des dégustateurs professionnels. Cette analyse est particulièrement importante pour l’industrie viticole, car elle permet de comprendre et de prédire la qualité d’un vin à partir de mesures objectives, sans attendre les tests humains. Elle sert également de référence en apprentissage automatique pour tester des modèles de classification et de régression sur des données réelles, structurées et faciles à manipuler.
 
 1) Importation du dataset
 ```python
