@@ -156,7 +156,7 @@ La distribution montre que la grande majorité des températures sont normales e
 
 Ces valeurs extrêmes étirent fortement l’axe horizontal, rendant la distribution difficile à lire et pouvant fausser les analyses statistiques.
 Avant toute modélisation, il est indispensable de nettoyer ou corriger ces outliers afin d’obtenir une distribution plus cohérente et représentative des données réelles.
-## les outiliers 
+## les outliers 
 ```
 plt.figure(figsize=(8, 6))
 sns.boxplot(y=df['temperature'])
@@ -181,7 +181,7 @@ plt.show()
 La distribution montre que la plupart des valeurs de pouls se situent dans une plage réaliste (environ 60 à 120 battements par minute). Cependant, comme pour la température, on observe des valeurs extrêmement élevées (jusqu’à près de 600), ce qui est physiologiquement impossible et révèle la présence d’outliers ou d’erreurs de saisie.
 
 La forme étirée de la courbe vers la droite indique que ces valeurs aberrantes influencent fortement l’échelle du graphique. Un nettoyage des données est donc nécessaire avant toute analyse fiable.
-## les outiliers 
+## les outliers 
 ```
 plt.figure(figsize=(8, 6))
 sns.boxplot(y=df['pouls'])
@@ -207,7 +207,7 @@ plt.show()
 La distribution montre que la grande majorité des valeurs d’oxygène se situent dans une plage réaliste (autour de 90–100 %). Cependant, comme pour les variables précédentes, on observe des valeurs extrêmement élevées, allant jusqu’à plus de 600 %, ce qui est impossible physiologiquement.
 
 Ces valeurs aberrantes indiquent des erreurs de saisie ou d’enregistrement et étirent fortement la distribution, rendant la visualisation moins représentative. Un nettoyage de ces outliers est donc nécessaire pour obtenir une analyse fiable et cohérente.
-## les outiliers 
+## les outliers 
 ```
 plt.figure(figsize=(8, 6))
 sns.boxplot(y=df['oxygene'])
@@ -232,7 +232,7 @@ plt.show()
 La distribution de la glycémie est globalement stable et régulière, avec des valeurs comprises entre environ 70 et 120 mg/dL, ce qui correspond à des niveaux réalistes et physiologiquement possibles. Contrairement aux autres variables (température, pouls, oxygène), aucune valeur extrême ou aberrante n’est visible.
 
 La courbe de densité confirme une répartition relativement homogène, sans anomalies majeures. Cela indique que la glycémie est une variable propre, cohérente et directement exploitable pour l’analyse statistique ou la modélisation.
-## les outiliers 
+## les outliers 
 ```
 plt.figure(figsize=(8, 6))
 sns.boxplot(y=df['glycemie'])
@@ -258,7 +258,7 @@ plt.show()
 La distribution de la tension montre une répartition homogène des valeurs, comprises entre environ 90 et 140 mmHg, ce qui correspond à une plage réaliste et physiologiquement cohérente. Aucun outlier extrême ou valeur aberrante n’est visible.
 
 La courbe de densité est relativement régulière, indiquant une variabilité normale de la tension dans l’échantillon. Cette variable est donc propre, stable et directement exploitable pour l'analyse statistique ou la modélisation, sans besoin de nettoyage particulier.
-## les outiliers
+## les outliers
 ```
 plt.figure(figsize=(8, 6))
 sns.boxplot(y=df['tension'])
