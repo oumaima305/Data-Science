@@ -101,8 +101,7 @@ df.duplicated().sum()
 df.isnull().sum()
 ```
  ## Résultat 
-git clone https://github.com/votre-username/votre-repo.git
-cd votre-repo
+![Checking for null values](19374a44-6d11-4b17-81db-8211b5999240.png)
 
 
 
