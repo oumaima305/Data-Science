@@ -328,6 +328,9 @@ La glycémie ne semble pas influencer label directement.
 Très faible corrélation proche de 0.
 
 Aucun lien direct.
+### La heatmap de corrélation a révélé que la variable 'pouls' a la corrélation la plus forte avec la variable cible 'label' (environ 0.65). Cela suggère que le pouls est un indicateur important pour la prédiction de la variable cible.
+## Les autres variables numériques ('temperature', 'oxygene', 'glycemie', 'tension') montrent des corrélations relativement faibles avec la variable cible, ce qui pourrait indiquer qu'elles ont une influence moindre individuellement, ou que leur relation est plus complexe et non linéaire.
+## Les corrélations entre les variables explicatives sont généralement faibles, ce qui est une bonne chose pour l'indépendance des features dans de nombreux modèles de machine learning.
 
 ## 7.2.2. Relations entre les variables explicatives
 L’objectif ici est de vérifier s’il existe de la multicolinéarité (variables très corrélées entre elles), ce qui pourrait fausser les modèles.
@@ -355,7 +358,103 @@ Aucune relation.
 Très faible relation inverse.
 
 ## Les variables sont indépendantes les unes des autres.
-  
+## 7.3. Distribution de la variable cible (Label)
+```
+plt.figure(figsize=(8, 6))
+sns.countplot(x=df['label'])
+plt.title('Distribution de la Variable Cible (Label)')
+plt.xlabel('Label')
+plt.ylabel('Count')
+plt.show()
+```
+<img width="704" height="547" alt="image" src="https://github.com/user-attachments/assets/22a4626a-1d35-415b-ac19-7c4897adb630" />
+Le graphique montre que les deux classes de la variable cible (label = 0 et label = 1) sont relativement équilibrées. La classe 1 est légèrement plus fréquente que la classe 0, mais la différence reste modérée. Cette répartition équilibrée est un point positif pour l’analyse et la modélisation, car elle évite les problèmes liés au déséquilibre des classes (comme un modèle biaisé vers la classe majoritaire).
+
+En conclusion, la distribution du label est stable et ne nécessite pas de techniques de rééquilibrage telles que l’oversampling ou l’undersampling.
+## 8. Conclusions Principales**
+
+### Conclusion 1 : Qualité Globale des Données**
+
+L’analyse exploratoire révèle que la base de données contient des distributions globalement cohérentes pour certaines variables (glycémie, tension), mais aussi **d’importantes valeurs aberrantes** dans d’autres mesures (pouls, oxygène, température). Ces anomalies nécessitent un nettoyage approfondi avant tout modèle prédictif.
+
+### Conclusion 2 : Hétérogénéité et Outliers**
+
+Les boxplots montrent une **hétérogénéité importante** dans certaines mesures physiologiques :
+– fortes dispersions,
+– valeurs biologiquement impossibles,
+– distributions asymétriques.
+Cela indique soit des erreurs de saisie, soit des capteurs défaillants, soit des cas extrêmes cliniques.
+
+### Conclusion 3 : Relations Faibles entre Variables**
+
+La matrice de corrélation montre que **très peu de variables sont corrélées entre elles**, ce qui confirme que chaque indicateur physiologique apporte une information indépendante.
+La seule corrélation notable est **pouls ↔ label (≈0.65)**, ce qui suggère que le pouls est un facteur déterminant dans la classification.
+
+### Conclusion 4 : Bonne Répartition du Label**
+
+La distribution du label montre un **équilibre satisfaisant entre les classes “sain” et “malade”**, ce qui facilite l’entraînement de modèles prédictifs fiables sans techniques d’oversampling.
+## 9. Recommandations 
+## 9.1. Recommandations pour les Décideurs Médicaux et Gestionnaires de Données
+
+### 9.1.1. Mise en place d’un Processus de Nettoyage Automatisé
+
+## Action :
+Développer un pipeline automatique pour détecter et corriger les valeurs aberrantes physiologiquement impossibles (ex : pouls à 500+, oxygène à 300…).
+**Justification :** Les outliers détectés risquent de fausser tout diagnostic machine learning.
+**Mise en œuvre :**
+* Définir des seuils biologiques réalistes
+* Supprimer/Imputer les valeurs extrêmes
+* Ajouter un contrôle qualité des capteurs
+
+### 9.1.2.  Priorisation du Pouls dans les Outils de Dépistage
+
+**Action :** Donner davantage de poids aux mesures de pouls dans les modèles précoces de détection.
+**Justification :** Le pouls est la variable **la plus corrélée** avec le statut clinique (malade/sain).
+**Mise en œuvre :**
+* Construire un “score de risque” basé sur le pouls
+* Développer des alertes automatiques pour les valeurs anormales
+* Associer le pouls à une mesure secondaire (tension ou oxygène) pour affiner le diagnostic
+## 9.1.3.  Normalisation des Protocoles de Mesure
+
+**Action :** Uniformiser la manière dont les mesures physiologiques sont collectées.
+**Justification :** Les distributions très dispersées indiquent une variabilité due aux protocoles, pas aux patients.
+**Mise en œuvre :**
+
+* Contraindre les appareils utilisés
+* Standardiser les horaires/délais de mesure
+* Former le personnel aux procédures
+
+
+## 9.2.  Recommandations pour les Médecins et Personnel Soignant
+
+### 9.2.1. Vérification des Valeurs Extrêmes en Clinique**
+
+**Pour qui :** Toutes les équipes cliniques utilisant les données pour le triage.
+**Action :** Recontrôler manuellement toute mesure extrême détectée automatiquement.
+**Impact attendu :** Moins de fausses alertes / diagnostics erronés.
+### **Recommandation 2 : Surveillance Renforcée du Pouls**
+
+**Actions immédiates :**
+
+* Contrôler systématiquement le pouls chez les patients à risque
+* Utiliser les mesures de pouls comme premier indicateur prédictif
+* Coupler le pouls avec la tension pour détecter précocement les décompensations
+
+**Coût :** quasi nul (procédures + formation)
+**Impact :** amélioration rapide de la détection précoce
+
+---
+
+### 9.2.2. Utilisation des Variables Fiables (Tension, Glycémie) pour Suivi**
+
+**Actions :**
+
+* Exploiter tension et glycémie, qui présentent des distributions propres
+* Maintenir un suivi régulier pour détecter des tendances temporelles
+
+**Pourquoi :** ces variables sont stables et exemptes d'outliers, donc utilisables directement.
+
+
 
 
 
