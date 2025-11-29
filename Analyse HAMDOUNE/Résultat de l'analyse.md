@@ -99,11 +99,13 @@ df.duplicated().sum()
 ```
 df.isnull().sum()
 ```
+<img src="<img width="327" height="340" alt="image" src="https://github.com/user-attachments/assets/7e955737-358a-49d1-bf2e-9533aae11f0b" />" style="height:464px;margin-right:432px"/>
 ## 6.2.  Statistiques descriptives 
 ```
 df.describe()
 ```
-<img src="<img width="327" height="340" alt="image" src="https://github.com/user-attachments/assets/7e955737-358a-49d1-bf2e-9533aae11f0b" />" style="height:464px;margin-right:432px"/>
+<img src="" style="height:464px;margin-right:432px"/> 
+
 
     
   
