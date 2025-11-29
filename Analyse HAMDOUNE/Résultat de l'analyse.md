@@ -371,13 +371,13 @@ plt.show()
 Le graphique montre que les deux classes de la variable cible (label = 0 et label = 1) sont relativement équilibrées. La classe 1 est légèrement plus fréquente que la classe 0, mais la différence reste modérée. Cette répartition équilibrée est un point positif pour l’analyse et la modélisation, car elle évite les problèmes liés au déséquilibre des classes (comme un modèle biaisé vers la classe majoritaire).
 
 En conclusion, la distribution du label est stable et ne nécessite pas de techniques de rééquilibrage telles que l’oversampling ou l’undersampling.
-## 8. Conclusions Principales**
+## 8. Conclusions Principales
 
-### Conclusion 1 : Qualité Globale des Données**
+### Conclusion 1 : Qualité Globale des Données
 
 L’analyse exploratoire révèle que la base de données contient des distributions globalement cohérentes pour certaines variables (glycémie, tension), mais aussi **d’importantes valeurs aberrantes** dans d’autres mesures (pouls, oxygène, température). Ces anomalies nécessitent un nettoyage approfondi avant tout modèle prédictif.
 
-### Conclusion 2 : Hétérogénéité et Outliers**
+### Conclusion 2 : Hétérogénéité et Outliers
 
 Les boxplots montrent une **hétérogénéité importante** dans certaines mesures physiologiques :
 – fortes dispersions,
@@ -385,7 +385,7 @@ Les boxplots montrent une **hétérogénéité importante** dans certaines mesur
 – distributions asymétriques.
 Cela indique soit des erreurs de saisie, soit des capteurs défaillants, soit des cas extrêmes cliniques.
 
-### Conclusion 3 : Relations Faibles entre Variables**
+### Conclusion 3 : Relations Faibles entre Variables
 
 La matrice de corrélation montre que **très peu de variables sont corrélées entre elles**, ce qui confirme que chaque indicateur physiologique apporte une information indépendante.
 La seule corrélation notable est **pouls ↔ label (≈0.65)**, ce qui suggère que le pouls est un facteur déterminant dans la classification.
