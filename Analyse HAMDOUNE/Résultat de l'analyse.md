@@ -271,7 +271,90 @@ Le boxplot montre que les valeurs de tension sont bien réparties entre environ 
 
 Ce graphique confirme que la tension est une variable propre, stable et exempte de valeurs aberrantes, ce qui la rend parfaitement exploitable pour l’analyse ou la modélisation sans nécessiter de nettoyage préalable.
 ## 7.2. Matrice des corrélations 
-    
+ a matrice de corrélation sert à mesurer la relation entre les différentes variables du dataset. Elle permet :
+
+d’identifier quelles variables sont liées entre elles,
+
+de repérer celles qui influencent le plus la variable cible (label),
+
+de vérifier s’il existe des variables redondantes,
+
+et de guider la sélection des variables importantes pour l’analyse ou la modélisation.
+
+Donc elle montre que le pouls est la variable la plus fortement corrélée au label, tandis que les autres variables ont des relations plus faibles.   
+```plt.figure(figsize=(10, 8))
+sns.heatmap(df.corr(numeric_only=True), annot=True, cmap='coolwarm', fmt=".2f")
+plt.title('Matrice de Corrélation des Variables Numériques')
+plt.show()
+```
+<img width="764" height="682" alt="image" src="https://github.com/user-attachments/assets/580e4e67-acdd-44a7-9841-9ab59411e59e" />
+## 7.2.1. Corrélation entre label et les variables explicatives
+C’est la partie la plus importante, car elle indique quelles variables influencent le plus la variable cible label.
+# Pouls ↔ Label : +0.65 (corrélation forte)
+C’est la relation la plus élevée de toute la matrice.
+
+Un coefficient de 0.65 indique une corrélation positive forte :
+
+Quand le pouls augmente, la probabilité que label = 1 augmente aussi.
+
+Cela suggère que le pouls est une variable clé, potentiellement le meilleur prédicteur pour classer les individus selon label.
+
+## le pouls est fortement associé à l’état clinique représenté par label.
+
+## Oxygène ↔ Label : –0.09 (faible corrélation négative)
+Légère tendance inverse : quand l’oxygène diminue, label tend à être 1.
+
+Mais la relation est faible, donc pas très significative.
+
+Peut néanmoins apporter de l’information lorsqu’elle est combinée avec d’autres variables.
+
+## Impact faible mais plausible sur le plan clinique.
+
+## Température ↔ Label : +0.07 (corrélation très faible)
+Très petite corrélation positive.
+
+Peut indiquer une légère tendance à avoir un label = 1 quand la température augmente.
+
+Ce lien est toutefois très faible.
+
+## Glycémie ↔ Label : –0.01 (aucune corrélation)
+Coefficient quasiment nul.
+
+La glycémie ne semble pas influencer label directement.
+
+## Aucune relation linéaire.
+
+## Tension ↔ Label : +0.02 (aucune corrélation)
+Très faible corrélation proche de 0.
+
+Aucun lien direct.
+
+## 7.2.2. Relations entre les variables explicatives
+L’objectif ici est de vérifier s’il existe de la multicolinéarité (variables très corrélées entre elles), ce qui pourrait fausser les modèles.
+
+Bonne nouvelle :
+
+## Toutes les corrélations entre variables sont faibles (entre –0.06 et +0.07).
+Cela signifie :
+
+Pas de redondance entre les variables
+
+Elles apportent chacune une information indépendante
+
+Les modèles statistiques (régression logistique, SVM, etc.) ne seront pas perturbés par la colinéarité
+
+Exemples :
+
+• Température ↔ Pouls : +0.04
+Très faible, donc pas lié.
+
+• Glycémie ↔ Tension : –0.02
+Aucune relation.
+
+• Oxygène ↔ Pouls : –0.06
+Très faible relation inverse.
+
+## Les variables sont indépendantes les unes des autres.
   
 
 
