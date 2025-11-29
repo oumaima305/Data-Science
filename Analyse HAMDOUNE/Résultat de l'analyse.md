@@ -79,20 +79,76 @@ matplotlib & seaborn : visualisations
 scikit-learn : modélisation machine learning
 ## 5. Importation du DATA Base
 ```
-#Importing Libraries
+# Importing Libraries
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-#For ignoring warning
+# For ignoring warning
 import warnings
 warnings.filterwarnings("ignore")
 df=pd.read_csv('/content/maladie_observations.csv')
 display(df.head())
 ```
 ## 6. Nettoyage des données 
+## Checking for Duplicates
+```
+df.duplicated().sum()
+```
+## Checking for null values
+```
+df.isnull().sum()
+```
+ ## Résultat 
 
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+
+
+  
+    
+      
+      0
+    
+  
+  
+    
+      temperature
+      19
+    
+    
+      pouls
+      23
+    
+    
+      oxygene
+      10
+    
+    
+      glycemie
+      0
+    
+    
+      tension
+      0
+    
+    
+      label
+      0
+    
+  
+
+dtype: int64
 
 
 
