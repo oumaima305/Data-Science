@@ -104,7 +104,8 @@ df.isnull().sum()
 ```
 df.describe()
 ```
-<img src="" style="height:464px;margin-right:432px"/> 
+<img src="<img width="685" height="305" alt="image" src="https://github.com/user-attachments/assets/9f1147b9-5371-42e1-8872-81d0b595c382" />
+" style="height:464px;margin-right:432px"/> 
 
 
     
