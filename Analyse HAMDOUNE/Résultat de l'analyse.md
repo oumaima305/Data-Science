@@ -137,10 +137,49 @@ print("Missing values after imputation:")
 print(df[['temperature', 'pouls', 'oxygene']].isnull().sum())
 ```
 <img src="
+<img width="731" height="104" alt="image" src="https://github.com/user-attachments/assets/70e7dbe8-1837-4b20-8c65-99c1d36454c4" />
 " style="height:464px;margin-right:432px"/> 
+## 7. Résultats et analyses 
+## 7.1. les Distributions et les outliers des variables 
+## 7.1.1.la Température
+## Distriution
+```
+plt.figure(figsize=(10, 6))
+sns.histplot(df['temperature'], kde=True)
+plt.title('Distribution de la Température')
+plt.xlabel('Température')
+plt.ylabel('Fréquence')
+plt.show()
+```
+<img width="851" height="548" alt="image" src="https://github.com/user-attachments/assets/cea95972-6165-4d07-bc0d-ef39039809ff" />
+La distribution montre que la grande majorité des températures sont normales et regroupées dans une plage réaliste (environ 35–40°C). Cependant, on observe des valeurs extrêmement élevées, allant jusqu’à plus de 500°C, ce qui est impossible en pratique et indique la présence de valeurs aberrantes ou d’erreurs de saisie.
 
+Ces valeurs extrêmes étirent fortement l’axe horizontal, rendant la distribution difficile à lire et pouvant fausser les analyses statistiques.
+Avant toute modélisation, il est indispensable de nettoyer ou corriger ces outliers afin d’obtenir une distribution plus cohérente et représentative des données réelles.
+## les outiliers 
+```
+plt.figure(figsize=(8, 6))
+sns.boxplot(y=df['temperature'])
+plt.title('Box Plot de la Température')
+plt.ylabel('Température')
+plt.show()
+```
+<img width="696" height="509" alt="image" src="https://github.com/user-attachments/assets/4c764307-8c9f-46cb-b294-e28806059944" />
 
-
+Le boxplot montre que la majorité des températures sont normales, autour de 35–40°C. Cependant, de très nombreuses valeurs extrêmement élevées (jusqu’à plus de 500°C) apparaissent comme outliers. Ces valeurs sont impossibles d’un point de vue physiologique et correspondent donc à des erreurs de saisie. La présence de ces anomalies rend indispensable un nettoyage des données avant toute analyse fiable.
+## 7.1.2. Pouls
+## Distriution
+## les outiliers 
+## 7.1.3. l'Oxygène
+## Distriution
+## les outiliers 
+## 7.1.4.la Glycémie
+## Distriution
+## les outiliers 
+## 7.1.5.la Tension
+## Distriution
+## les outiliers 
+## 7.2. Matrice des corrélations 
     
   
 
