@@ -29,6 +29,25 @@ label - Diagnostic binaire :
 0 : État physiologique normal
 
 1 : État pathologique détecté
-## 
+## Méthodologie 
+Données Médicales Brutes
+    ↓
+Analyse des Données Manquantes
+    ↓
+Imputation par la Médiane
+    ↓
+Analyse des Distributions
+    ↓
+Détection des Outliers
+    ↓
+Analyse de Corrélation
+    ↓
+Analyse de la Variable Cible
+    ↓
+Interprétation Médicale
+    ↓
+Recommandations Cliniques
+
+
 
 
