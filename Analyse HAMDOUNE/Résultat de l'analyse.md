@@ -169,16 +169,107 @@ plt.show()
 Le boxplot montre que la majorité des températures sont normales, autour de 35–40°C. Cependant, de très nombreuses valeurs extrêmement élevées (jusqu’à plus de 500°C) apparaissent comme outliers. Ces valeurs sont impossibles d’un point de vue physiologique et correspondent donc à des erreurs de saisie. La présence de ces anomalies rend indispensable un nettoyage des données avant toute analyse fiable.
 ## 7.1.2. Pouls
 ## Distriution
+```
+plt.figure(figsize=(10, 6))
+sns.histplot(df['pouls'], kde=True)
+plt.title('Distribution du Pouls')
+plt.xlabel('Pouls')
+plt.ylabel('Fréquence')
+plt.show()
+```
+<img width="851" height="547" alt="image" src="https://github.com/user-attachments/assets/2c1d529e-2ae4-4b43-a5d6-445e21d1e8a2" />
+La distribution montre que la plupart des valeurs de pouls se situent dans une plage réaliste (environ 60 à 120 battements par minute). Cependant, comme pour la température, on observe des valeurs extrêmement élevées (jusqu’à près de 600), ce qui est physiologiquement impossible et révèle la présence d’outliers ou d’erreurs de saisie.
+
+La forme étirée de la courbe vers la droite indique que ces valeurs aberrantes influencent fortement l’échelle du graphique. Un nettoyage des données est donc nécessaire avant toute analyse fiable.
 ## les outiliers 
+```
+plt.figure(figsize=(8, 6))
+sns.boxplot(y=df['pouls'])
+plt.title('Box Plot du Pouls')
+plt.ylabel('Pouls')
+plt.show()
+```
+<img width="695" height="509" alt="image" src="https://github.com/user-attachments/assets/60c0e356-2ef9-4dea-a185-4acabbd4545d" />
+Le boxplot montre que la majorité des valeurs de pouls se situent dans une plage normale (environ 60 à 120 bpm). Cependant, un grand nombre de points très éloignés au-dessus de cette plage apparaissent comme des outliers extrêmes, certains dépassant 300, 400 ou même 500 bpm — des valeurs impossibles physiologiquement.
+
+Ces anomalies représentent des erreurs de mesure ou de saisie et faussent la distribution. Un nettoyage des données est donc indispensable avant toute analyse fiable ou modélisation.
 ## 7.1.3. l'Oxygène
 ## Distriution
+```
+plt.figure(figsize=(10, 6))
+sns.histplot(df['oxygene'], kde=True)
+plt.title("Distribution de l'Oxygène")
+plt.xlabel('Oxygène')
+plt.ylabel('Fréquence')
+plt.show()
+```
+<img width="851" height="548" alt="image" src="https://github.com/user-attachments/assets/873d27cc-cc06-41d7-8517-2be6be80b1ec" />
+La distribution montre que la grande majorité des valeurs d’oxygène se situent dans une plage réaliste (autour de 90–100 %). Cependant, comme pour les variables précédentes, on observe des valeurs extrêmement élevées, allant jusqu’à plus de 600 %, ce qui est impossible physiologiquement.
+
+Ces valeurs aberrantes indiquent des erreurs de saisie ou d’enregistrement et étirent fortement la distribution, rendant la visualisation moins représentative. Un nettoyage de ces outliers est donc nécessaire pour obtenir une analyse fiable et cohérente.
 ## les outiliers 
+```
+plt.figure(figsize=(8, 6))
+sns.boxplot(y=df['oxygene'])
+plt.title("Box Plot de l'Oxygène")
+plt.ylabel('Oxygène')
+plt.show()
+```
+<img width="696" height="509" alt="image" src="https://github.com/user-attachments/assets/89139457-5eb2-42b4-84a0-2021902e8a6c" />
+Le boxplot montre que la majorité des valeurs d’oxygène sont regroupées autour d’une plage normale (environ 90–100 %). Toutefois, plusieurs valeurs extrêmement élevées apparaissent au-dessus du boxplot, atteignant parfois plus de 500 % ou 600 %, ce qui est totalement impossible d’un point de vue physiologique.
+
+Ces valeurs correspondent à des outliers majeurs, probablement dus à des erreurs de saisie ou à un problème lors de la collecte des données. Elles faussent la représentation statistique et doivent être corrigées ou supprimées avant toute analyse fiable ou modélisation.
 ## 7.1.4.la Glycémie
 ## Distriution
+```plt.figure(figsize=(10, 6))
+sns.histplot(df['glycemie'], kde=True)
+plt.title('Distribution de la Glycémie')
+plt.xlabel('Glycémie')
+plt.ylabel('Fréquence')
+plt.show()
+```
+<img width="851" height="548" alt="image" src="https://github.com/user-attachments/assets/5cdb3545-da44-432b-b08a-712d666f0402" />
+La distribution de la glycémie est globalement stable et régulière, avec des valeurs comprises entre environ 70 et 120 mg/dL, ce qui correspond à des niveaux réalistes et physiologiquement possibles. Contrairement aux autres variables (température, pouls, oxygène), aucune valeur extrême ou aberrante n’est visible.
+
+La courbe de densité confirme une répartition relativement homogène, sans anomalies majeures. Cela indique que la glycémie est une variable propre, cohérente et directement exploitable pour l’analyse statistique ou la modélisation.
 ## les outiliers 
+```
+plt.figure(figsize=(8, 6))
+sns.boxplot(y=df['glycemie'])
+plt.title('Box Plot de la Glycémie')
+plt.ylabel('Glycémie')
+plt.show()
+```
+<img width="696" height="509" alt="image" src="https://github.com/user-attachments/assets/bfa55834-0c2b-47d5-8a2f-40fc85ff6d88" />
+Le boxplot montre que les valeurs de glycémie sont bien réparties entre environ 70 et 120 mg/dL, sans aucun outlier ni valeur aberrante. La médiane est autour de 94–95 mg/dL, et les quartiles indiquent une dispersion régulière des données.
+
+Cette visualisation confirme que la glycémie est une variable propre, cohérente et fiable, ne nécessitant aucun nettoyage particulier. Elle peut donc être utilisée directement pour l’analyse ou la modélisation.
 ## 7.1.5.la Tension
 ## Distriution
-## les outiliers 
+```
+plt.figure(figsize=(10, 6))
+sns.histplot(df['tension'], kde=True)
+plt.title('Distribution de la Tension')
+plt.xlabel('Tension')
+plt.ylabel('Fréquence')
+plt.show()
+```
+<img width="851" height="547" alt="image" src="https://github.com/user-attachments/assets/bd3c5fe7-ea1d-42de-bc71-8bdd3e6a775b" />
+La distribution de la tension montre une répartition homogène des valeurs, comprises entre environ 90 et 140 mmHg, ce qui correspond à une plage réaliste et physiologiquement cohérente. Aucun outlier extrême ou valeur aberrante n’est visible.
+
+La courbe de densité est relativement régulière, indiquant une variabilité normale de la tension dans l’échantillon. Cette variable est donc propre, stable et directement exploitable pour l'analyse statistique ou la modélisation, sans besoin de nettoyage particulier.
+## les outiliers
+```
+plt.figure(figsize=(8, 6))
+sns.boxplot(y=df['tension'])
+plt.title('Box Plot de la Tension')
+plt.ylabel('Tension')
+plt.show()
+```
+<img width="695" height="509" alt="image" src="https://github.com/user-attachments/assets/4caa5078-3d13-4df4-851a-1007d8d4ee08" />
+Le boxplot montre que les valeurs de tension sont bien réparties entre environ 90 et 140 mmHg, sans aucun outlier. La médiane se situe autour de 115 mmHg, ce qui correspond à une tension normale. Les quartiles indiquent une dispersion régulière et cohérente des données.
+
+Ce graphique confirme que la tension est une variable propre, stable et exempte de valeurs aberrantes, ce qui la rend parfaitement exploitable pour l’analyse ou la modélisation sans nécessiter de nettoyage préalable.
 ## 7.2. Matrice des corrélations 
     
   
