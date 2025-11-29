@@ -427,12 +427,12 @@ Développer un pipeline automatique pour détecter et corriger les valeurs aberr
 
 ## 9.2.  Recommandations pour les Médecins et Personnel Soignant
 
-### 9.2.1. Vérification des Valeurs Extrêmes en Clinique**
+### 9.2.1. Vérification des Valeurs Extrêmes en Clinique
 
 **Pour qui :** Toutes les équipes cliniques utilisant les données pour le triage.
 **Action :** Recontrôler manuellement toute mesure extrême détectée automatiquement.
 **Impact attendu :** Moins de fausses alertes / diagnostics erronés.
-### **Recommandation 2 : Surveillance Renforcée du Pouls**
+### 9.2.2. Surveillance Renforcée du Pouls
 
 **Actions immédiates :**
 
@@ -442,17 +442,6 @@ Développer un pipeline automatique pour détecter et corriger les valeurs aberr
 
 **Coût :** quasi nul (procédures + formation)
 **Impact :** amélioration rapide de la détection précoce
-
----
-
-### 9.2.2. Utilisation des Variables Fiables (Tension, Glycémie) pour Suivi**
-
-**Actions :**
-
-* Exploiter tension et glycémie, qui présentent des distributions propres
-* Maintenir un suivi régulier pour détecter des tendances temporelles
-
-**Pourquoi :** ces variables sont stables et exemptes d'outliers, donc utilisables directement.
 
 
 
