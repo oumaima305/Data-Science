@@ -17,20 +17,20 @@ Modélisation : Analyse Prédictive
 Résultats et Interprétations
 
 Conclusions et Recommandations
-## Introduction 
-## Origine et Contexte
+## 1. Introduction 
+## 1.1. Origine et Contexte
 La base de données Maladie Observations représente une collection de données médicales simulées conçue pour la recherche en intelligence artificielle médicale. Elle a été créée pour étudier comment les paramètres physiologiques fondamentaux — température, pouls, oxygénation, glycémie et tension — permettent de discriminer l'état de santé des patients. Cette approche s'inscrit dans la tendance de la médecine prédictive visant à identifier précocement les états pathologiques à partir de signes vitaux facilement mesurables.
-## Objectif Principal
+## 1.2. Objectif Principal
 L'objectif central de cette base est d'établir des relations quantifiables entre les mesures physiologiques routinières et le statut clinique des patients, permettant ainsi de développer des algorithmes d'aide au diagnostic capables de classer automatiquement les patients comme "sains" ou "malades" sur la base de critères objectifs
-## PRÉSENTATION DU DATASET
-## Description Générale
+## 2. PRÉSENTATION DU DATASET
+## 2.1. Description Générale
 Type de données : Observations médicales de patients
 Nombre d'observations : 1 500 entrées
 Nombre de variables : 6 colonnes
-## Source des Données
+## 2.2. Source des Données
 # https://www.kaggle.com/datasets/nassimsfaxi/observation-de-maladie
-## variables 
-## Variables Mesurées
+## 2.3. variables 
+## 2.3.1. Variables Mesurées
 temperature - Régulation thermique corporelle (°C)
 
 pouls - Activité cardiaque (battements/minute)
@@ -41,13 +41,13 @@ glycemie - Métabolisme glucidique (mg/dL)
 
 tension - Hémodynamique (mmHg)
 
-## Variable Cible
+## 2.3.2.Variable Cible
 label - Diagnostic binaire :
 
 0 : État physiologique normal
 
 1 : État pathologique détecté
-## Méthodologie 
+## 3. Méthodologie 
 Données Médicales Brutes
     ↓
 Analyse des Données Manquantes
@@ -65,15 +65,34 @@ Analyse de la Variable Cible
 Interprétation Médicale
     ↓
 Recommandations Cliniques
-## Outils et Technologies
+## 4. Outils et Technologies
 Langage : Python 3.x
 
 Bibliothèques :
+
 pandas : manipulation de données
+
 numpy : calculs numériques
+
 matplotlib & seaborn : visualisations
+
 scikit-learn : modélisation machine learning
-## 
+## 5. Importation du DATA Base
+```
+#Importing Libraries
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+#For ignoring warning
+import warnings
+warnings.filterwarnings("ignore")
+df=pd.read_csv('/content/maladie_observations.csv')
+display(df.head())
+```
+## 6. Nettoyage des données 
+
 
 
 
