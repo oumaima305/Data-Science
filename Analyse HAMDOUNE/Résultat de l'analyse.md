@@ -112,6 +112,33 @@ df.describe()
 ```
 <img src="<img width="685" height="305" alt="image" src="https://github.com/user-attachments/assets/9f1147b9-5371-42e1-8872-81d0b595c382" />
 " style="height:464px;margin-right:432px"/> 
+## 6.3. problème détecté 
+Après le nettoyage des données (suppression des doublons et imputation des valeurs manquantes), le principal problème détecté dans la base est la présence de valeurs aberrantes (outliers) dans plusieurs colonnes numériques clés.
+Plus précisément :
+## Température et Pouls présentent des valeurs significativement plus élevées que la majorité des données. Ces outliers pourraient indiquer des erreurs de mesure ou des cas médicaux extrêmes.
+## Oxygène a également des outliers, avec des valeurs très faibles ou très élevées. Les valeurs très faibles, en particulier, méritent une attention particulière car elles peuvent avoir une signification clinique importante.
+## Tension montre quelques outliers, principalement des valeurs élevées, bien que moins extrêmes que pour la température ou le pouls.
+Ces outliers pourraient influencer l'entraînement de certains modèles d'apprentissage automatique et nécessitent souvent une investigation ou un traitement supplémentaire (par exemple, la suppression, la transformation, ou l'utilisation de méthodes robustes) en fonction des objectifs de l'analyse.
+## 6.4. Imputer les Valeurs Manquantes
+
+Remplir les valeurs manquantes dans les colonnes 'temperature', 'pouls' et 'oxygene' en utilisant la médiane de chaque colonne pour assurer la cohérence des données avant l'analyse graphique.
+
+Je vais d’abord calculer la médiane pour chacune des colonnes spécifiées : temperature, pouls et oxygene. Ensuite, j’utiliserai ces valeurs médianes pour remplacer les valeurs manquantes (NaN) dans leurs colonnes respectives au sein du DataFrame df. Enfin, je vérifierai qu’il ne reste plus de valeurs manquantes dans ces colonnes.
+```
+median_temperature = df['temperature'].median()
+median_pouls = df['pouls'].median()
+median_oxygene = df['oxygene'].median()
+
+df['temperature'].fillna(median_temperature, inplace=True)
+df['pouls'].fillna(median_pouls, inplace=True)
+df['oxygene'].fillna(median_oxygene, inplace=True)
+
+print("Missing values after imputation:")
+print(df[['temperature', 'pouls', 'oxygene']].isnull().sum())
+```
+<img src="
+" style="height:464px;margin-right:432px"/> 
+
 
 
     
