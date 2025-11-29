@@ -103,14 +103,7 @@ df.isnull().sum()
 ```
 df.describe()
 ```
-# Générer les statistiques descriptives
-descriptive_stats = df.describe()
-
-# Afficher les statistiques dans un format Markdown
-```print("## Statistiques Descriptives\n")
-print(descriptive_stats.to_markdown(floatfmt=".2f"))
-```
-    
+<img src="c1.PNG" style="height:464px;margin-right:432px"/>
 
     
   
