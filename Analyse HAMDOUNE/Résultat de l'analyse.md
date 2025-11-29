@@ -65,7 +65,15 @@ Analyse de la Variable Cible
 Interprétation Médicale
     ↓
 Recommandations Cliniques
+## Outils et Technologies
+Langage : Python 3.x
 
+Bibliothèques :
+pandas : manipulation de données
+numpy : calculs numériques
+matplotlib & seaborn : visualisations
+scikit-learn : modélisation machine learning
+## 
 
 
 
