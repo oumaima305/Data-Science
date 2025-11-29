@@ -1,4 +1,22 @@
 ## OUMAIMA HAMDOUNE 
+## Sommaire
+Introduction
+
+Présentation du Dataset
+
+Méthodologie
+
+Nettoyage des Données
+
+Analyse Exploratoire
+
+Matrice de Corrélation
+
+Modélisation : Analyse Prédictive
+
+Résultats et Interprétations
+
+Conclusions et Recommandations
 ## Introduction 
 ## Origine et Contexte
 La base de données Maladie Observations représente une collection de données médicales simulées conçue pour la recherche en intelligence artificielle médicale. Elle a été créée pour étudier comment les paramètres physiologiques fondamentaux — température, pouls, oxygénation, glycémie et tension — permettent de discriminer l'état de santé des patients. Cette approche s'inscrit dans la tendance de la médecine prédictive visant à identifier précocement les états pathologiques à partir de signes vitaux facilement mesurables.
