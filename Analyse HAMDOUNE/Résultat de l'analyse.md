@@ -101,7 +101,8 @@ df.duplicated().sum()
 df.isnull().sum()
 ```
  ## Résultat 
-![Checking for null values](19374a44-6d11-4b17-81db-8211b5999240.png)
+![Checking for null values](<img width="327" height="340" alt="c1" src="https://github.com/user-attachments/assets/2bd87c8e-a5f3-453e-8d18-3c5d0e925270" />
+)
 
 
 
